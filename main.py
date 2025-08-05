@@ -40,7 +40,7 @@ conversation_history = []
 async def on_chat_start():
     global conversation_history
     conversation_history = []
-    await cl.Message(content="👋 Welcome! I'm your AI Study Partner. How can I assist you today?").send()
+    await cl.Message(content="👋 Welcome! I'm your AI Study Partner created by Muhammad Amanullah. How can I assist you today?").send()
 
 @cl.on_message
 async def handle_message(message: cl.Message):
