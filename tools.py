@@ -1,4 +1,3 @@
-import chainlit as cl
 from datetime import datetime, timedelta
 from agents import function_tool,Runner
 from pydantic import BaseModel
@@ -106,7 +105,7 @@ async def progress_tracker(results: List[QuizResult]) -> ProgressReport:
 @function_tool
 async def quiz_evaluator(topic: str, answers: list[str]) -> str:
     """
-    Evaluates a 5-question quiz on the given topic based on the user's answers (A, B, C, or D).
+    Evaluates a 10-question quiz on the given topic based on the user's answers (A, B, C, or D).
     Returns the score and explanations.
     """
     quiz = await rate_limited_runner_call(Runner.run, mcqs_generator, topic)
@@ -169,7 +168,7 @@ Each question must include:
 - 4 plausible options (labeled a-d)
 - Only one correct answer
 
-Do not generate more or fewer than 5 questions.
+Do not generate more or fewer than 10 questions.
 Return results in the format defined by the MCQSet schema.
 """,
     output_type=MCQSet,
